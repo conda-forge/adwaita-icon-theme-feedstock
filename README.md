@@ -5,9 +5,11 @@ Home: https://developer.gnome.org
 
 Package license: LGPL-3.0-or-later OR CC-BY-SA-3.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/adwaita-icon-theme-feedstock/blob/master/LICENSE.txt)
 
 Summary: The default icon theme used by the GNOME desktop
+
+Development: https://gitlab.gnome.org/GNOME/adwaita-icon-theme
 
 This package contains the default icon theme used by the GNOME desktop.
 The icons are used in many of the official GNOME applications like eog,
