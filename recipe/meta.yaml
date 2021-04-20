@@ -1,6 +1,6 @@
 {% set name = "adwaita-icon-theme" %}
-{% set version = "3.38.0" %}
-{% set majmin_version = "3.38" %}
+{% set version = "40.0" %}
+{% set majmin_version = "40" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ majmin_version }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 6683a1aaf2430ccd9ea638dd4bfe1002bc92b412050c3dba20e480f979faaf97
+  sha256: 1f2bca34f60357ab91b7db91c5e919ad36775e094138dffc870bb5f97b0dbbb2
 
 build:
-  number: 1
+  number: 0
   merge_build_host: false  # [not win]
   # windows build assume one prefix (between e.g. python/gtk3), so use merged host/build
   merge_build_host: true  # [win]
