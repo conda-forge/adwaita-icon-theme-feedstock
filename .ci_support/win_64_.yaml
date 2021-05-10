@@ -4,6 +4,8 @@ channel_targets:
 - conda-forge main
 librsvg:
 - '2'
+noarch_str:
+- 'null'
 pin_run_as_build:
   librsvg:
     max_pin: x
