@@ -41,17 +41,17 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_noarch_strgeneric</td>
+              <td>linux_64_noarchgeneric</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9564&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adwaita-icon-theme-feedstock?branchName=master&jobName=linux&configuration=linux_64_noarch_strgeneric" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adwaita-icon-theme-feedstock?branchName=master&jobName=linux&configuration=linux_64_noarchgeneric" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_noarch_strnull</td>
+              <td>linux_64_noarchnull</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9564&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adwaita-icon-theme-feedstock?branchName=master&jobName=linux&configuration=linux_64_noarch_strnull" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adwaita-icon-theme-feedstock?branchName=master&jobName=linux&configuration=linux_64_noarchnull" alt="variant">
                 </a>
               </td>
             </tr><tr>

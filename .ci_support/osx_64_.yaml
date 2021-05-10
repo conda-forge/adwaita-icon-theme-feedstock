@@ -8,7 +8,7 @@ librsvg:
 - '2'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-noarch_str:
+noarch:
 - 'null'
 pin_run_as_build:
   librsvg:
