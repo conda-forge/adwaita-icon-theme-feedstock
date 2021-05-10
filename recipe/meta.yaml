@@ -11,7 +11,7 @@ source:
   sha256: 0b6c436ed6ad9887a88ada1f72a0197b1eb73b020d8d344abab4c7fa7250f8f6
 
 build:
-  number: 0
+  number: 1
   # This package can be noarch on all platforms except for Windows.
   # But, we want to keep building for linux-64, osx-64, and linux-aarch64 for
   # now because of https://github.com/conda/conda/issues/9905 until a new noarch
