@@ -1,0 +1,3 @@
+noarch_str:
+  - null
+  - generic  # [linux64]

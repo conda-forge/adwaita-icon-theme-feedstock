@@ -12,6 +12,13 @@ source:
 
 build:
   number: 0
+  # This package can be noarch on all platforms except for Windows.
+  # But, we want to keep building for linux-64, osx-64, and linux-aarch64 for
+  # now because of https://github.com/conda/conda/issues/9905 until a new noarch
+  # package would be preferred over an old arch-specific package.
+  # To get a noarch build for using on other platforms (linux-ppc64le, osx-arm64)
+  # we do an extra build on linux that makes a noarch package.
+  noarch: {{ noarch_str }}
   merge_build_host: false  # [not win]
   # windows build assume one prefix (between e.g. python/gtk3), so use merged host/build
   merge_build_host: true  # [win]
