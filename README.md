@@ -20,7 +20,14 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>Drone</td>
+    <td>
+      <a href="https://cloud.drone.io/conda-forge/adwaita-icon-theme-feedstock">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/adwaita-icon-theme-feedstock/master.svg?label=Linux">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -34,10 +41,17 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>linux_64_noarchgeneric</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9564&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adwaita-icon-theme-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adwaita-icon-theme-feedstock?branchName=master&jobName=linux&configuration=linux_64_noarchgeneric" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_noarchnull</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9564&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adwaita-icon-theme-feedstock?branchName=master&jobName=linux&configuration=linux_64_noarchnull" alt="variant">
                 </a>
               </td>
             </tr><tr>

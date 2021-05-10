@@ -8,6 +8,8 @@ librsvg:
 - '2'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+noarch:
+- 'null'
 pin_run_as_build:
   librsvg:
     max_pin: x

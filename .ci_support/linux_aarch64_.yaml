@@ -12,6 +12,8 @@ docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 librsvg:
 - '2'
+noarch:
+- 'null'
 pin_run_as_build:
   librsvg:
     max_pin: x
