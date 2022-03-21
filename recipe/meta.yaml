@@ -1,5 +1,5 @@
 {% set name = "adwaita-icon-theme" %}
-{% set version = "41.0" %}
+{% set version = "42.0" %}
 {% set major_version = '.'.join(version.split('.', 1)[:1]) %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ major_version }}/{{ name }}-{{ version }}.tar.xz
-  sha256: ef5339d8c35fcad5d10481b70480803f0fa20b3d3cbc339238fcaceeaee01eba
+  sha256: 5e85b5adc8dee666900fcaf271ba717f7dcb9d0a03d96dae08f9cbd27e18b1e0
 
 build:
-  number: 1
+  number: 0
   # This package can be noarch on all platforms except for Windows.
   # But, we want to keep building for linux-64, osx-64, and linux-aarch64 for
   # now because of https://github.com/conda/conda/issues/9905 until a new noarch
