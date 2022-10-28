@@ -14,8 +14,5 @@ librsvg:
 - '2'
 noarch:
 - 'null'
-pin_run_as_build:
-  librsvg:
-    max_pin: x
 target_platform:
 - linux-aarch64
