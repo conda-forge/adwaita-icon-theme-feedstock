@@ -12,8 +12,8 @@ source:
 build:
   number: 0
   noarch: generic
-  string: "unix_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"  # [unix]
-  string: "win_{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"  # [win]
+  string: "unix_{{ PKG_BUILDNUM }}"  # [unix]
+  string: "win_{{ PKG_BUILDNUM }}"  # [win]
   merge_build_host: false  # [not win]
   # windows build assume one prefix (between e.g. python/gtk3), so use merged host/build
   merge_build_host: true  # [win]
@@ -28,6 +28,7 @@ requirements:
     - librsvg
     - make  # [unix]
     - python
+    - vs2019_win-64  # [win]
   host:
     # explicitly empty
   run:
