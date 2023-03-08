@@ -8,16 +8,11 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_noarchgeneric:
-        CONFIG: linux_64_noarchgeneric
+      linux_64_:
+        CONFIG: linux_64_
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-        SHORT_CONFIG: linux_64_noarchgeneric
-      linux_64_noarchnull:
-        CONFIG: linux_64_noarchnull
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-        SHORT_CONFIG: linux_64_noarchnull
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+        SHORT_CONFIG: linux_64_
   timeoutInMinutes: 360
 
   steps:
