@@ -17,9 +17,10 @@ build:
   merge_build_host: false  # [not win]
   # windows build assume one prefix (between e.g. python/gtk3), so use merged host/build
   merge_build_host: true  # [win]
-  ignore_run_exports:
+  ignore_run_exports_from:
     - gtk3  # [win]
     - librsvg  # [win]
+    - {{ compiler('c') }}  # [win]
 
 requirements:
   build:
@@ -28,7 +29,8 @@ requirements:
     - librsvg
     - make  # [unix]
     - python
-    - vs2019_win-64  # [win]
+    # for nmake
+    - {{ compiler('c') }}  # [win]
   host:
     # explicitly empty
   run:
