@@ -66,6 +66,7 @@ jobs:
       env:
         PYTHONUNBUFFERED: 1
     - script: |
+        @echo on
         set CI=azure
         set CI_RUN_ID=$(build.BuildNumber).$(system.JobAttempt)
         set FEEDSTOCK_NAME=$(build.Repository.Name)
@@ -75,7 +76,7 @@ jobs:
         if "%AGENT_JOBSTATUS%" == "Failed" (
             set ENV_ARTIFACT_PREFIX=conda_envs
         )
-        call ".scripts\create_conda_build_artifacts.bat"
+        call .scripts\create_conda_build_artifacts.bat
       displayName: Prepare conda build artifacts
       condition: succeededOrFailed()
 
