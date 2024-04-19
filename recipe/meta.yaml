@@ -15,19 +15,12 @@ build:
   noarch: generic
   string: "unix_{{ PKG_BUILDNUM }}"  # [unix]
   string: "win_{{ PKG_BUILDNUM }}"  # [win]
-  merge_build_host: false  # [not win]
-  # windows build assume one prefix (between e.g. python/gtk3), so use merged host/build
-  merge_build_host: true  # [win]
-  ignore_run_exports_from:
-    - gtk3  # [win]
-    - librsvg  # [win]
-    - {{ compiler('c') }}  # [win]
+  merge_build_host: false
 
 requirements:
   build:
-    # gtk3 and librsvg here for rendering svg to png, build ok because platform independent
+    # gtk needed for building icon cache, build OK because cache file is platform-independent
     - gtk3
-    - librsvg
     - meson
     - ninja
     - python
@@ -45,17 +38,16 @@ test:
     # test that a representative set of files get installed
     - test -f $PREFIX/share/icons/Adwaita/icon-theme.cache  # [unix]
     - test -f $PREFIX/share/icons/Adwaita/index.theme  # [unix]
-    - test -f $PREFIX/share/icons/Adwaita/16x16/devices/computer.png  # [unix]
-    - test -f $PREFIX/share/icons/Adwaita/16x16/devices/computer-symbolic.symbolic.png  # [unix]
+    - test -f $PREFIX/share/icons/Adwaita/16x16/devices/audio-headphones.png  # [unix]
     - test -f $PREFIX/share/icons/Adwaita/cursors/cross  # [unix]
-    - test -f $PREFIX/share/icons/Adwaita/scalable/devices/computer-symbolic.svg  # [unix]
+    - test -f $PREFIX/share/icons/Adwaita/cursors/default  # [unix]
+    - test -f $PREFIX/share/icons/Adwaita/scalable/devices/computer.svg  # [unix]
     - if not exist %PREFIX%\Library\share\icons\Adwaita\icon-theme.cache exit 1  # [win]
     - if not exist %PREFIX%\Library\share\icons\Adwaita\index.theme exit 1  # [win]
-    - if not exist %PREFIX%\Library\share\icons\Adwaita\16x16\devices\computer.png  exit 1  # [win]
-    - if not exist %PREFIX%\Library\share\icons\Adwaita\16x16\devices\computer-symbolic.symbolic.png  exit 1  # [win]
-    - if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\cross exit 1  # [win]
-    - if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\cross.cur exit 1  # [win]
-    - if not exist %PREFIX%\Library\share\icons\Adwaita\scalable\devices\computer-symbolic.svg exit 1  # [win]
+    - if not exist %PREFIX%\Library\share\icons\Adwaita\16x16\devices\audio-headphones.png  exit 1  # [win]
+    - if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\crosshair.cur exit 1  # [win]
+    - if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\default.cur exit 1  # [win]
+    - if not exist %PREFIX%\Library\share\icons\Adwaita\scalable\devices\computer.svg exit 1  # [win]
 
 about:
   home: https://developer.gnome.org

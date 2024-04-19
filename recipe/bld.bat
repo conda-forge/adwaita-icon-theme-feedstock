@@ -9,3 +9,7 @@ if errorlevel 1 exit 1
 
 meson install -C builddir
 if errorlevel 1 exit 1
+
+:: build icon cache manually since it fails for some reason when run by meson
+"%LIBRARY_PREFIX%\bin\gtk-update-icon-cache.exe" -f -t -q "%LIBRARY_PREFIX%\share\icons\Adwaita"
+if errorlevel 1 exit 1
