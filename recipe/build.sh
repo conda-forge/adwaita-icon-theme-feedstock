@@ -6,4 +6,4 @@ meson setup builddir ${MESON_ARGS} --buildtype=release --prefix=$PREFIX || (cat 
 # print full meson configuration
 meson configure builddir
 
-ninja -v -C builddir -j ${CPU_COUNT}
+meson install -C builddir

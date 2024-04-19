@@ -7,5 +7,5 @@ if errorlevel 1 exit 1
 meson configure builddir
 if errorlevel 1 exit 1
 
-ninja -v -C builddir -j %CPU_COUNT%
+meson install -C builddir
 if errorlevel 1 exit 1
