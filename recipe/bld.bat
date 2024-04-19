@@ -1,14 +1,11 @@
 @echo on
 
-cd "win32"
-
-set "PREFIX=%LIBRARY_PREFIX%"
-set "PYTHON=%BUILD_PREFIX%\python.exe"
-
-md "%LIBRARY_PREFIX%\share\icons\Adwaita"
-
-nmake /F adwaita-msvc.mak
+meson setup builddir --buildtype=release --prefix="%LIBRARY_PREFIX%"
 if errorlevel 1 exit 1
 
-nmake /F adwaita-msvc.mak install
+:: print results of build configuration
+meson configure builddir
+if errorlevel 1 exit 1
+
+ninja -v -C builddir -j %CPU_COUNT%
 if errorlevel 1 exit 1

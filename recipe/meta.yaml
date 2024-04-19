@@ -1,13 +1,14 @@
 {% set name = "adwaita-icon-theme" %}
-{% set version = "43" %}
+{% set version = "46.0" %}
+{% set major_version = version.split('.')[0] %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://download.gnome.org/sources/{{ name }}/{{ version }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 2e3ac77d32a6aa5554155df37e8f0a0dd54fc5a65fd721e88d505f970da32ec6
+  url: https://download.gnome.org/sources/{{ name }}/{{ major_version }}/{{ name }}-{{ version }}.tar.xz
+  sha256: 4bcb539bd75d64da385d6fa08cbaa9ddeaceb6ac8e82b85ba6c41117bf5ba64e
 
 build:
   number: 0
@@ -27,10 +28,9 @@ requirements:
     # gtk3 and librsvg here for rendering svg to png, build ok because platform independent
     - gtk3
     - librsvg
-    - make  # [unix]
+    - meson
+    - ninja
     - python
-    # for nmake
-    - {{ compiler('c') }}  # [win]
   host:
     # explicitly empty
   run:
