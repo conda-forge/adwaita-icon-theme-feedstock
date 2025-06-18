@@ -1,5 +1,5 @@
 {% set name = "adwaita-icon-theme" %}
-{% set version = "48.0" %}
+{% set version = "48.1" %}
 {% set major_version = version.split('.')[0] %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ major_version }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 847068888650d9673115be6dbf2bfdc31a46aebc528a6a9db4420e60e656b8d4
+  sha256: cbfe9b86ebcd14b03ba838c49829f7e86a7b132873803b90ac10be7d318a6e12
 
 build:
   number: 0
