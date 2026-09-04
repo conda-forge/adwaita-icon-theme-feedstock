@@ -11,7 +11,7 @@ source:
   sha256: 65166461d1b278aa942f59aa8d0fccf1108d71c65f372c6266e172449791755c
 
 build:
-  number: 0
+  number: 1
   noarch: generic
   string: "unix_{{ PKG_BUILDNUM }}"  # [unix]
   string: "win_{{ PKG_BUILDNUM }}"  # [win]
