@@ -1,0 +1,83 @@
+schema_version: 1
+
+context:
+  version: "50.0"
+  major_version: ${{ version.split('.')[0] }}
+
+package:
+  name: adwaita-icon-theme
+  version: ${{ version }}
+
+source:
+  url: https://download.gnome.org/sources/adwaita-icon-theme/${{ major_version }}/adwaita-icon-theme-${{ version }}.tar.xz
+  sha256: fac6e0401fca714780561a081b8f7e27c3bc1db34ebda4da175081f26b24d460
+
+build:
+  #string: "unix_{{ PKG_BUILDNUM }}"  # [unix]
+  #string: "win_{{ PKG_BUILDNUM }}"  # [win]
+  number: 1
+  noarch: generic
+  merge_build_and_host_envs: false
+
+requirements:
+  build:
+    # gtk needed for building icon cache, build OK because cache file is platform-independent
+    - gtk3
+    - meson
+    - ninja
+    - python
+  host:
+  # explicitly empty
+  run:
+    - if: unix
+      then: __unix
+    - if: win
+      then: __win
+    - hicolor-icon-theme
+    # librsvg needed at runtime for libpixbufloader-svg.so so svgs can be rendered
+    - librsvg
+
+tests:
+  - script:
+      - if: unix
+        then: test -f $PREFIX/share/icons/Adwaita/icon-theme.cache
+      - if: unix
+        then: test -f $PREFIX/share/icons/Adwaita/index.theme
+      - if: unix
+        then: test -f $PREFIX/share/icons/Adwaita/16x16/devices/audio-headphones.png
+      - if: unix
+        then: test -f $PREFIX/share/icons/Adwaita/cursors/cross
+      - if: unix
+        then: test -f $PREFIX/share/icons/Adwaita/cursors/default
+      - if: unix
+        then: test -f $PREFIX/share/icons/Adwaita/scalable/devices/computer.svg
+      - if: win
+        then: if not exist %PREFIX%\Library\share\icons\Adwaita\icon-theme.cache exit 1
+      - if: win
+        then: if not exist %PREFIX%\Library\share\icons\Adwaita\index.theme exit 1
+      - if: win
+        then: if not exist %PREFIX%\Library\share\icons\Adwaita\16x16\devices\audio-headphones.png  exit 1
+      - if: win
+        then: if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\crosshair.cur exit 1
+      - if: win
+        then: if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\default.cur exit 1
+      - if: win
+        then: if not exist %PREFIX%\Library\share\icons\Adwaita\scalable\devices\computer.svg exit 1
+
+about:
+  #license: LGPL-3.0-or-later OR CC-BY-SA-3.0
+  license: LGPL-3.0-or-later
+  license_file: COPYING
+  summary: The default icon theme used by the GNOME desktop
+  description: |
+    This package contains the default icon theme used by the GNOME desktop.
+    The icons are used in many of the official GNOME applications like eog,
+    Evince, system monitor, and many more.
+  homepage: https://developer.gnome.org
+  repository: https://gitlab.gnome.org/GNOME/adwaita-icon-theme
+
+extra:
+  recipe-maintainers:
+    - ryanvolz
+    - stuarteberg
+    - tschoonj
