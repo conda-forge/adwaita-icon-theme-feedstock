@@ -13,9 +13,8 @@ source:
   sha256: fac6e0401fca714780561a081b8f7e27c3bc1db34ebda4da175081f26b24d460
 
 build:
-  #string: "unix_{{ PKG_BUILDNUM }}"  # [unix]
-  #string: "win_{{ PKG_BUILDNUM }}"  # [win]
-  number: 1
+  number: 0
+  string: ${{ 'win_${{ PKG_BUILDNUM }}' if win else 'unix_${{ PKG_BUILDNUM }}' if unix else '' }}
   noarch: generic
   merge_build_and_host_envs: false
 
@@ -65,8 +64,7 @@ tests:
         then: if not exist %PREFIX%\Library\share\icons\Adwaita\scalable\devices\computer.svg exit 1
 
 about:
-  #license: LGPL-3.0-or-later OR CC-BY-SA-3.0
-  license: LGPL-3.0-or-later
+  license: LGPL-3.0-or-later OR CC-BY-SA-3.0
   license_file: COPYING
   summary: The default icon theme used by the GNOME desktop
   description: |
