@@ -4,7 +4,7 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ major_version }}/{{ name }}-{{ version }}.tar.xz
