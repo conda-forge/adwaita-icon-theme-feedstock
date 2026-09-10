@@ -1,0 +1,75 @@
+schema_version: 1
+
+context:
+  build_number: 0
+  version: "50.0"
+  major_version: ${{ (version | split('.'))[0] }}
+
+package:
+  name: adwaita-icon-theme
+  version: ${{ version }}
+
+source:
+  url: https://download.gnome.org/sources/adwaita-icon-theme/${{ major_version }}/adwaita-icon-theme-${{ version }}.tar.xz
+  sha256: fac6e0401fca714780561a081b8f7e27c3bc1db34ebda4da175081f26b24d460
+
+build:
+  number: ${{ build_number }}
+  string: ${{ "win" if win else "unix" }}_${{ build_number }}
+  noarch: generic
+  merge_build_and_host_envs: false
+
+requirements:
+  build:
+    # gtk needed for building icon cache, build OK because cache file is platform-independent
+    - gtk3
+    - meson
+    - ninja
+    - python ${{ python_min }}.*
+  host:
+  # explicitly empty
+  run:
+    - if: unix
+      then: __unix
+    - if: win
+      then: __win
+    - hicolor-icon-theme
+    # librsvg needed at runtime for libpixbufloader-svg.so so svgs can be rendered
+    - librsvg
+
+tests:
+  - package_contents:
+      files:
+        - if: unix
+          then:
+            - share/icons/Adwaita/icon-theme.cache
+            - share/icons/Adwaita/index.theme
+            - share/icons/Adwaita/16x16/devices/audio-headphones.png
+            - share/icons/Adwaita/cursors/cross
+            - share/icons/Adwaita/cursors/default
+            - share/icons/Adwaita/scalable/devices/computer.svg
+        - if: win
+          then:
+            - Library\share\icons\Adwaita\icon-theme.cache
+            - Library\share\icons\Adwaita\index.theme
+            - Library\share\icons\Adwaita\16x16\devices\audio-headphones.png
+            - Library\share\icons\Adwaita\cursors\crosshair.cur
+            - Library\share\icons\Adwaita\cursors\default.cur
+            - Library\share\icons\Adwaita\scalable\devices\computer.svg
+
+about:
+  license: LGPL-3.0-or-later OR CC-BY-SA-3.0
+  license_file: COPYING
+  summary: The default icon theme used by the GNOME desktop
+  description: |
+    This package contains the default icon theme used by the GNOME desktop.
+    The icons are used in many of the official GNOME applications like eog,
+    Evince, system monitor, and many more.
+  homepage: https://developer.gnome.org
+  repository: https://gitlab.gnome.org/GNOME/adwaita-icon-theme
+
+extra:
+  recipe-maintainers:
+    - ryanvolz
+    - stuarteberg
+    - tschoonj
