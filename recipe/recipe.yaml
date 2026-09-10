@@ -37,23 +37,24 @@ requirements:
     - librsvg
 
 tests:
-  - files:
-      - if: unix
-        then:
-          - share/icons/Adwaita/icon-theme.cache
-          - share/icons/Adwaita/index.theme
-          - share/icons/Adwaita/16x16/devices/audio-headphones.png
-          - share/icons/Adwaita/cursors/cross
-          - share/icons/Adwaita/cursors/default
-          - share/icons/Adwaita/scalable/devices/computer.svg
-      - if: win
-        then:
-          - Library\share\icons\Adwaita\icon-theme.cache
-          - Library\share\icons\Adwaita\index.theme
-          - Library\share\icons\Adwaita\16x16\devices\audio-headphones.png
-          - Library\share\icons\Adwaita\cursors\crosshair.cur
-          - Library\share\icons\Adwaita\cursors\default.cur
-          - Library\share\icons\Adwaita\scalable\devices\computer.svg
+  - package_contents:
+      files:
+        - if: unix
+          then:
+            - share/icons/Adwaita/icon-theme.cache
+            - share/icons/Adwaita/index.theme
+            - share/icons/Adwaita/16x16/devices/audio-headphones.png
+            - share/icons/Adwaita/cursors/cross
+            - share/icons/Adwaita/cursors/default
+            - share/icons/Adwaita/scalable/devices/computer.svg
+        - if: win
+          then:
+            - Library\share\icons\Adwaita\icon-theme.cache
+            - Library\share\icons\Adwaita\index.theme
+            - Library\share\icons\Adwaita\16x16\devices\audio-headphones.png
+            - Library\share\icons\Adwaita\cursors\crosshair.cur
+            - Library\share\icons\Adwaita\cursors\default.cur
+            - Library\share\icons\Adwaita\scalable\devices\computer.svg
 
 about:
   license: LGPL-3.0-or-later OR CC-BY-SA-3.0
