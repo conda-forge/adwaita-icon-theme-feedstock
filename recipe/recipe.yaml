@@ -1,6 +1,7 @@
 schema_version: 1
 
 context:
+  build_number: 0
   version: "50.0"
   major_version: ${{ (version | split('.'))[0] }}
 
@@ -13,8 +14,8 @@ source:
   sha256: fac6e0401fca714780561a081b8f7e27c3bc1db34ebda4da175081f26b24d460
 
 build:
-  number: 0
-  string: ${{ 'win_${{ PKG_BUILDNUM }}' if win else 'unix_${{ PKG_BUILDNUM }}' if unix else '' }}
+  number: ${{ build_number }}
+  string: ${{ "win" if win else "unix" }}_${{ build_number }}
   noarch: generic
   merge_build_and_host_envs: false
 
