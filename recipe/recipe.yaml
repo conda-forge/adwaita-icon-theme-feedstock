@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   version: "50.0"
-  major_version: ${{ version.split('.')[0] }}
+  major_version: ${{ (version | split('.'))[0] }}
 
 package:
   name: adwaita-icon-theme
