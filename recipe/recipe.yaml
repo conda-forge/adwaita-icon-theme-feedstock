@@ -37,31 +37,23 @@ requirements:
     - librsvg
 
 tests:
-  - script:
+  - files:
       - if: unix
-        then: test -f $PREFIX/share/icons/Adwaita/icon-theme.cache
-      - if: unix
-        then: test -f $PREFIX/share/icons/Adwaita/index.theme
-      - if: unix
-        then: test -f $PREFIX/share/icons/Adwaita/16x16/devices/audio-headphones.png
-      - if: unix
-        then: test -f $PREFIX/share/icons/Adwaita/cursors/cross
-      - if: unix
-        then: test -f $PREFIX/share/icons/Adwaita/cursors/default
-      - if: unix
-        then: test -f $PREFIX/share/icons/Adwaita/scalable/devices/computer.svg
+        then:
+          - share/icons/Adwaita/icon-theme.cache
+          - share/icons/Adwaita/index.theme
+          - share/icons/Adwaita/16x16/devices/audio-headphones.png
+          - share/icons/Adwaita/cursors/cross
+          - share/icons/Adwaita/cursors/default
+          - share/icons/Adwaita/scalable/devices/computer.svg
       - if: win
-        then: if not exist %PREFIX%\Library\share\icons\Adwaita\icon-theme.cache exit 1
-      - if: win
-        then: if not exist %PREFIX%\Library\share\icons\Adwaita\index.theme exit 1
-      - if: win
-        then: if not exist %PREFIX%\Library\share\icons\Adwaita\16x16\devices\audio-headphones.png  exit 1
-      - if: win
-        then: if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\crosshair.cur exit 1
-      - if: win
-        then: if not exist %PREFIX%\Library\share\icons\Adwaita\cursors\default.cur exit 1
-      - if: win
-        then: if not exist %PREFIX%\Library\share\icons\Adwaita\scalable\devices\computer.svg exit 1
+        then:
+          - Library\share\icons\Adwaita\icon-theme.cache
+          - Library\share\icons\Adwaita\index.theme
+          - Library\share\icons\Adwaita\16x16\devices\audio-headphones.png
+          - Library\share\icons\Adwaita\cursors\crosshair.cur
+          - Library\share\icons\Adwaita\cursors\default.cur
+          - Library\share\icons\Adwaita\scalable\devices\computer.svg
 
 about:
   license: LGPL-3.0-or-later OR CC-BY-SA-3.0
