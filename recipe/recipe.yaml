@@ -24,7 +24,7 @@ requirements:
     - gtk3
     - meson
     - ninja
-    - python
+    - python ${{ python_min }}.*
   host:
   # explicitly empty
   run:
